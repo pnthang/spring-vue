@@ -1,0 +1,5 @@
+package springboothelloword.controller;
+
+public class HellowordController {
+
+}

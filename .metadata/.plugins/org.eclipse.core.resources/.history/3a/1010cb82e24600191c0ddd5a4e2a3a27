@@ -1,0 +1,5 @@
+package ca.gtem.restservice.repository;
+
+public interface ProductRespository {
+
+}

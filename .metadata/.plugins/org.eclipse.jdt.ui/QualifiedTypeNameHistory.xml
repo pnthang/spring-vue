@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="ca.gtem.restservice.repository.UserRepository"/>
+<fullyQualifiedTypeName name="org.springframework.data.rest.core.annotation.RestResource"/>
+<fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+<fullyQualifiedTypeName name="org.springframework.data.rest.core.annotation.RepositoryRestResource"/>
+<fullyQualifiedTypeName name="ca.gtem.restservice.entity.Book"/>
+</qualifiedTypeNameHistroy>

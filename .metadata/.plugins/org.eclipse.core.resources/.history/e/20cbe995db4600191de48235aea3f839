@@ -1,0 +1,32 @@
+package ca.gtem.restservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import ca.gtem.restservice.entity.User;
+import ca.gtem.restservice.repository.UserRespository;
+
+
+@SpringBootApplication
+public class Application {
+	public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+	
+	@Bean
+    protected CommandLineRunner init(final UserRespository userRepository) {
+
+        return args -> {
+            User user = new User();
+            user.setUsername("root");
+            user.setPassword("root");
+            user.setFirstname("Administrator");
+            user.setLastname("System");
+            user.setEmail("admin@gtem.ca");
+            userRepository.save(user);
+
+        };
+    }
+}

@@ -1,0 +1,9 @@
+package ca.gtem.restservice.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import ca.gtem.restservice.entity.Product;
+
+public interface ProductRespository extends JpaRepository<Product,Long> {
+
+}

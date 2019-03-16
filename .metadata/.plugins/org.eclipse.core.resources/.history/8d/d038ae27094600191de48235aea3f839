@@ -1,0 +1,5 @@
+package ca.gtem.restservice.controller;
+
+public class UserController {
+
+}

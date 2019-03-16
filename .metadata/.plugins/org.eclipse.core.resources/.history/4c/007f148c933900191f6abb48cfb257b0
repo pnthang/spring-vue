@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class Courses {
+
+    // Map of course names and marks
+    private Map<String, Double> courseMarks;
+
+    public Courses(Map<String, Double> courseMarks) {
+        this.courseMarks = new HashMap<>(courseMarks);
+    }
+
+    // Return the average marks in the given courses
+    public double averageSomeCourses(Set<String> courseNames) {
+        // Complete this method
+		double average=0;
+		int count=0;
+		for (Map.Entry<String, Double> entry : courseMarks.entrySet()) {
+            if (courseNames.contains(entry.getKey())){
+				average +=entry.getValue();
+				count++;
+			} 
+        }
+		if (count>0){
+			average = average / count;
+		}
+        return average;
+    }
+
+    public void print() {
+        System.out.print("Courses: ");
+        for (Map.Entry<String, Double> entry : courseMarks.entrySet()) {
+            System.out.printf("%s: %.2f, ", entry.getKey(), entry.getValue());
+        }
+        System.out.println("");
+    }
+	
+	public static void main(String[] args){		
+		Map<String, Double>courseMarks = new HashMap<>();
+        courseMarks.put( "MT101", 80.0 );
+        courseMarks.put( "CS101", 81.0 );
+        courseMarks.put( "HS101", 82.0 );
+        courseMarks.put( "PS101", 83.0 );
+		Courses marks = new Courses(courseMarks);
+		
+		Set<String> courses = new HashSet<>();
+        courses.add( "MT101" );
+        courses.add( "CS101" );
+        //courses.add( "HS101" );
+        double avg = marks.averageSomeCourses( courses );
+		marks.print();
+		System.out.println(avg);
+		
+		
+	}
+
+}

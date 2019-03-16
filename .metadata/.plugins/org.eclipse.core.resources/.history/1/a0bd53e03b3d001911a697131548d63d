@@ -1,0 +1,82 @@
+package test;
+
+/*
+2 - Write an algorithm (Vehicles.java) that, from reading and storing in vectors the commercial value of 20 vehicles and the type (family (1), public transportation (2), load (3)), 
+calculate the value based on:
+• For vehicles with a value greater than 100 million, charge VAT of 20%, for others VAT is 16%
+• For vehicles type 1, with value up to 50 million, apply a discount equivalent to 50% of the VAT charged
+• For vehicles type 2 and 3, with a value higher than 80 million, apply an additional cost of 5%
+• For all vehicles, if the final value is less than 80 million, apply an additional discount of 5% of the commercial value
+
+File: Vehicles.java
+Date: March 3, 2019
+Author: Victo
+*/
+import java.util.Scanner;
+
+public class Vehicles{	
+	private static final int MAX_VEHICLES = 2;
+	
+	// Vehicles with a value greater than 100 million is luxury car
+	private static final int LUXURY_VALUE = 100;
+	
+	// Charge VAT of 20%, for others VAT is 16%
+	private static final int VAT_REGULAR_CAR = 16;
+	private static final int VAT_LUXURY_CAR = 20;
+	
+	// Vehicles with type family (1) a value less than 50 million is economic car
+	private static final int ECO_TYPE1_VALUE = 50;
+	private static final int VAT_DISCOUNT_ECO_TYPE1 = 50;
+	
+	// Vehicles with type public transportation (2) and load (3) a value higher than 80 million is business car
+	private static final int BUSINESS_TYPE23_VALUE = 80;
+	private static final int VAT_ADDITIONAL_TYPE23 = 5;
+	
+	// Discount commercial value for all car has total value less then 80
+	private static final int TOTAL_DISCOUNT_VALUE = 80;
+	private static final int VAT_TOTAL_DISCOUNT = 5;
+	
+	int type;
+	double valueVehicle;
+	double vat;
+	double vatExtra;
+	double valueDiscount;
+	
+	public void inputVehicle(){
+		Scanner scanner = new Scanner(System.in);		
+		System.out.print("Enter value of vehicle: ");		
+		valueVehicle=scanner.nextDouble();			
+		System.out.print("Enter type of vehicle: ");
+		type=scanner.nextInt();
+		scanner.close();
+	}
+	
+	public void displayVehicle(){					
+		System.out.print("\n Vehicle ");			
+		System.out.print("Value "+ valueVehicle);
+		String strVehicleType="";
+		switch (type){
+			case 1: 
+				strVehicleType = "Family";
+				break;
+			case 2: 
+				strVehicleType = "Public transportation";
+				break;
+			case 3: 
+				strVehicleType = "Load";
+				break;
+		}
+		System.out.printf("\t Type: "+ strVehicleType);		
+	}
+	
+	public static void main(String[] args){
+		Vehicles[] arrayVehicles = new Vehicles[MAX_VEHICLES];		
+		for (int i=0;i<MAX_VEHICLES;i++){			
+			arrayVehicles[i] = new Vehicles();
+			arrayVehicles[i].inputVehicle();
+		}
+		for (int i=0;i<MAX_VEHICLES;i++){			
+			arrayVehicles[i].displayVehicle();
+		}
+	}
+}
